@@ -197,7 +197,32 @@ console.log(arr);
 console.log(`생년월일 : ${arr[0]}년 ${arr[1]}월 ${arr[2]}일`);
 
 
+/** 14. startsWith(), endswith()
+ * 문자열의 시작이 파라미터로 전달된 문자열로 시작되는지를 확인
+ * 
+ * 사용자의 입력값 확인, 업로드 파일 확장자 확인...
+ */
+let url = "http://website.com";
+if (url.startsWith("http://") || url.startsWith("https://")){
+  console.log("올바른 형식의 url입니다");
+} else {
+  console.log("잘못된 형식의 url입니다");
+}
 
+let files = ["a.pdf", "b.txt", "c.pdf", "d.exe", "e.hwp", "f.pdf"];
+// .pdf 만 추출
+let pdfs = [];
+for (file of files){
+  // console.log(String(file).endsWith(".pdf"));
+  if (String(file).endsWith(".pdf")){
+    pdfs.push(file);
+  }
+}
+console.log(pdfs);
+
+// filter() : callbackfn을 통해 true를 반환하는 요소를 기준으로 신규 배열을 만들어 반환
+let li = files.filter(file=>String(file).endsWith(".pdf"));
+console.log("li = ", li);
 
 
 
