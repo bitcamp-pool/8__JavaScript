@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>this에 Object 객체가 바인딩 된 경우</title>
+</head>
+<!-- Object는 키와 값으로 데이터를 저장
+  키에 대한 값: 문자열, 숫자, 배열 등의 타입 뿐만 아니라
+  함수를 정의해서 사용 가능
+  함수 내에서 Object 내에 정의된 다른 키에 접근 시 this 키워드 사용
+-->
+<body>
+  <script>
+    let person = {
+      firstName:"James",
+      lastName:"Deen",
+      fullName: function(){
+        return this.firstName + " " + this.lastName;
+      },
+    };
+
+    console.log(person.fullName());
+  </script>
+</body>
+</html>

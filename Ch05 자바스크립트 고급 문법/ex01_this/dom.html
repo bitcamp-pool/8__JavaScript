@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>this에 DOM 요소가 바인딩 된 경우</title>
+</head>
+<!-- HTML DOM 요소에서 onclick, onchange 등의 이벤트가 발생할 때 호출하는 함수의 
+     파라미터로 this를 전달하면 이벤트가 발생한 HTML DOM 그 자체가 된다
+-->
+<body>
+  <button type="button" style="background-color: yellowgreen; color: #eee;" 
+    onclick="this.style.backgroundColor='red'">
+    Click me 1
+  </button>
+  <button type="button"
+    onclick="callFunc(this);">
+    Click me 2
+  </button>
+  <select onchange="changeSelect(this)">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+</body>
+
+<script>
+  function callFunc(obj){
+    console.log(obj);
+    /** <button/> 태그를 클릭할 때마다 onclick 이벤트가 발생되고,
+     * 이 때 호출하는 함수에 this를 파라미터로 전달하면,
+     * this는 자동으로 현재 이벤트가 발생한 <button> 태그 그 자체가 된다
+     */
+  }
+
+  function changeSelect(obj){
+    console.log(obj.value);
+  }
+</script>
+</html>
